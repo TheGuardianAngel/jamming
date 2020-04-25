@@ -4,9 +4,16 @@ import { Track } from '../Track/Track';
 
 export class TrackList extends React.Component {
   render() {
-    // TODO: when the API is integrated remove the index param and as key put track.id
-    let tracks = this.props.searchResults.map((track, index) => {
-      return <Track key={index} name={track.name} artist={track.artist} album={track.album} />;
+    let tracks = this.props.tracklist.map((track) => {
+      return (
+        <Track
+          key={track.id}
+          track={track}
+          onAdd={this.props.onAdd}
+          onRemove={this.props.onRemove}
+          isRemoval={this.props.isRemoval}
+        />
+      );
     });
     return <div className="TrackList">{tracks}</div>;
   }
