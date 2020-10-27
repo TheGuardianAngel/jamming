@@ -7,3 +7,4 @@ let tracks = [
 let searchRes = [];
 searchRes.push(...tracks);
 console.log(searchRes);
+console.log(process.memoryUsage().heapUsed);
